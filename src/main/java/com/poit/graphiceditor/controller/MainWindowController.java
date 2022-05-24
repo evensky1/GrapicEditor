@@ -126,13 +126,14 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    public void onClear(ActionEvent actionEvent) {
+    public void onClear() {
+        figuresKeeper.setSaveFigures(figureWrapper.save());
         figureWrapper.clear();
         clearCanvas();
     }
 
     @FXML
-    public void onLoadFigureClick(ActionEvent event) throws MalformedURLException {
+    public void onLoadFigureClick() throws MalformedURLException {
         URL classUrl = new URL("file:/C:/Users/fromt/IdeaSpace/SimpleGrapicEditor/target/classes/");
         ClassLoader classLoader = URLClassLoader.newInstance(new URL[]{classUrl}, getClass().getClassLoader());
         try {
