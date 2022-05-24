@@ -1,45 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.collections.FXCollections?>
-<?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.VBox?>
 <?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
       prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.poit.graphiceditor.controller.MainWindowController">
-    <children>
-        <Canvas fx:id="canvas" height="681.0" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased"
-                width="1280.0"/>
-        <ToolBar prefHeight="40.0" prefWidth="200.0">
+    <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <ChoiceBox fx:id="serializatorPicker" prefWidth="150.0">
+            <String fx:value="BSON"/>
+            <String fx:value="JSON"/>
+            <String fx:value="XML"/>
+        </ChoiceBox>
+        <Button mnemonicParsing="false" onAction="#deserializeAction" prefHeight="26.0" prefWidth="151.0"
+                text="Deserialize"/>
+        <Button mnemonicParsing="false" onAction="#serializeAction" prefHeight="26.0" prefWidth="149.0"
+                text="Serialize"/>
+        <Button mnemonicParsing="false" onAction="#onConversionDeserialization" prefHeight="26.0" prefWidth="149.0"
+                text="JSON -&gt; XML"/>
+        <Button mnemonicParsing="false" onAction="#onConversionSerialization" prefWidth="149.0"
+                text="XML -&gt; JSON"/>
+        <Button mnemonicParsing="false" onAction="#onRollBackAction" prefWidth="149.0" text="Rollback"/>
+    </ToolBar>
+    <Canvas fx:id="canvas" height="640.0" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased"
+            width="1280.0"/>
+    <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <ColorPicker fx:id="colorPicker" prefHeight="26.0" prefWidth="171.0"/>
+        <ChoiceBox fx:id="widthBox" prefHeight="26.0" prefWidth="171.0">
             <items>
-                <ColorPicker fx:id="colorPicker" prefHeight="26.0" prefWidth="171.0"/>
-                <ChoiceBox fx:id="widthBox" prefHeight="26.0" prefWidth="171.0">
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <Integer fx:value="1"/>
-                            <Integer fx:value="2"/>
-                            <Integer fx:value="3"/>
-                            <Integer fx:value="4"/>
-                            <Integer fx:value="5"/>
-                        </FXCollections>
-                    </items>
-                </ChoiceBox>
-                <ChoiceBox fx:id="shapeBox" layoutX="139.0" layoutY="12.0" prefHeight="26.0" prefWidth="171.0">
-                    <String fx:value="Ellipse"/>
-                    <String fx:value="Hexagon"/>
-                    <String fx:value="Line"/>
-                    <String fx:value="Rectangle"/>
-                    <String fx:value="Rhombus"/>
-                    <String fx:value="Triangle"/>
-                </ChoiceBox>
-                <Button mnemonicParsing="false" onAction="#serializeAction" prefHeight="26.0" prefWidth="156.0"
-                        text="Serialize"/>
-                <Button mnemonicParsing="false" onAction="#deserializeAction" prefHeight="26.0" prefWidth="156.0"
-                        text="Deserialize"/>
-                <Button mnemonicParsing="false" onAction="#onClear" prefHeight="26.0" prefWidth="156.0"
-                        text="Clear canvas"/>
+                <FXCollections fx:factory="observableArrayList">
+                    <Integer fx:value="1"/>
+                    <Integer fx:value="2"/>
+                    <Integer fx:value="3"/>
+                    <Integer fx:value="4"/>
+                    <Integer fx:value="5"/>
+                </FXCollections>
             </items>
-        </ToolBar>
-    </children>
+        </ChoiceBox>
+        <ChoiceBox fx:id="shapeBox" layoutX="139.0" layoutY="12.0" prefHeight="26.0" prefWidth="171.0">
+            <String fx:value="Ellipse"/>
+            <String fx:value="Hexagon"/>
+            <String fx:value="Line"/>
+            <String fx:value="Rectangle"/>
+            <String fx:value="Rhombus"/>
+            <String fx:value="Triangle"/>
+        </ChoiceBox>
+        <Button mnemonicParsing="false" onAction="#onClear" prefHeight="26.0" prefWidth="83.0" text="Clear canvas"/>
+        <TextField fx:id="pluginNameInput" prefHeight="26.0" prefWidth="147.0"/>
+        <Button mnemonicParsing="false" onAction="#onLoadFigureClick" prefHeight="26.0" prefWidth="85.0"
+                text="Load figure"/>
+    </ToolBar>
 </VBox>

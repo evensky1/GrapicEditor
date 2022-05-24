@@ -1,6 +1,5 @@
 package com.poit.graphiceditor.figures.impl;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.poit.graphiceditor.figures.Figure;
 import javafx.scene.canvas.GraphicsContext;
 

@@ -1,9 +1,7 @@
 package com.poit.graphiceditor.figures;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.poit.graphiceditor.figures.impl.*;
 import javafx.scene.canvas.GraphicsContext;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, property = "className")
